@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Tools Pro - Free Online PDF Editor</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <!-- Logo -->
+                <div class="logo">
+                    <a href="index.html">
+                        <i class="fas fa-file-pdf logo-icon"></i>
+                        <span class="logo-text">PDFTools<span class="logo-pro">Pro</span></span>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <ul class="nav-menu">
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link">Organize <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="merge-pdf.html"><i class="fas fa-object-group"></i> Merge PDF</a>
+                            <a href="split-pdf.html"><i class="fas fa-cut"></i> Split PDF</a>
+                            <a href="compress-pdf.html"><i class="fas fa-compress"></i> Compress PDF</a>
+                            <a href="reorder-pdf.html"><i class="fas fa-sort-numeric-down"></i> Reorder PDF</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link">Convert <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="pdf-to-word.html"><i class="fas fa-file-word"></i> PDF to Word</a>
+                            <a href="word-to-pdf.html"><i class="fas fa-file-pdf"></i> Word to PDF</a>
+                            <a href="pdf-to-excel.html"><i class="fas fa-file-excel"></i> PDF to Excel</a>
+                            <a href="excel-to-pdf.html"><i class="fas fa-file-pdf"></i> Excel to PDF</a>
+                            <a href="pdf-to-ppt.html"><i class="fas fa-file-powerpoint"></i> PDF to PPT</a>
+                            <a href="ppt-to-pdf.html"><i class="fas fa-file-pdf"></i> PPT to PDF</a>
+                            <a href="pdf-to-jpg.html"><i class="fas fa-file-image"></i> PDF to JPG</a>
+                            <a href="jpg-to-pdf.html"><i class="fas fa-file-pdf"></i> JPG to PDF</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link">Edit <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="edit-pdf.html"><i class="fas fa-edit"></i> Edit PDF</a>
+                            <a href="rotate-pdf.html"><i class="fas fa-sync-alt"></i> Rotate PDF</a>
+                            <a href="watermark-pdf.html"><i class="fas fa-tint"></i> Watermark PDF</a>
+                            <a href="page-numbers.html"><i class="fas fa-list-ol"></i> Add Page Numbers</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link">Security <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="protect-pdf.html"><i class="fas fa-lock"></i> Protect PDF</a>
+                            <a href="unlock-pdf.html"><i class="fas fa-unlock"></i> Unlock PDF</a>
+                            <a href="sign-pdf.html"><i class="fas fa-signature"></i> Sign PDF</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="all-tools.html" class="nav-link">All Tools</a>
+                    </li>
+                </ul>
+
+                <!-- Auth Buttons -->
+                <div class="auth-buttons">
+                    <a href="login.html" class="btn-login">Log In</a>
+                    <a href="signup.html" class="btn-signup">Sign Up Free</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div class="mobile-menu">
+                <div class="mobile-menu-header">
+                    <span>Menu</span>
+                    <i class="fas fa-times mobile-close"></i>
+                </div>
+                <div class="mobile-menu-content">
+                    <a href="merge-pdf.html"><i class="fas fa-object-group"></i> Merge PDF</a>
+                    <a href="split-pdf.html"><i class="fas fa-cut"></i> Split PDF</a>
+                    <a href="compress-pdf.html"><i class="fas fa-compress"></i> Compress PDF</a>
+                    <a href="pdf-to-word.html"><i class="fas fa-file-word"></i> PDF to Word</a>
+                    <a href="word-to-pdf.html"><i class="fas fa-file-pdf"></i> Word to PDF</a>
+                    <a href="all-tools.html"><i class="fas fa-tools"></i> All Tools</a>
+                    <div class="mobile-auth">
+                        <a href="login.html" class="btn-login">Log In</a>
+                        <a href="signup.html" class="btn-signup">Sign Up Free</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">All Your PDF Tools in One Place</h1>
+                <p class="hero-subtitle">Merge, split, compress, convert, edit, and secure PDF files for free. No installation needed.</p>
+                <div class="hero-search">
+                    <input type="text" placeholder="What do you want to do with your PDF?" class="search-input">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">30M+</span>
+                        <span class="stat-label">Users Monthly</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">PDF Tools</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Free Tools</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Tools Section -->
+    <section class="tools-section">
+        <div class="container">
+            <h2 class="section-title">Most Popular PDF Tools</h2>
+            <p class="section-subtitle">Our most used tools by millions of users worldwide</p>
+            
+            <div class="tools-grid">
+                <!-- Tool Card 1 -->
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-object-group"></i>
+                    </div>
+                    <h3 class="tool-title">Merge PDF</h3>
+                    <p class="tool-description">Combine multiple PDF files into one document in the order you want.</p>
+                    <a href="merge-pdf.html" class="tool-btn">Use Tool</a>
+                    <span class="tool-badge">Most Popular</span>
+                </div>
+
+                <!-- Tool Card 2 -->
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-cut"></i>
+                    </div>
+                    <h3 class="tool-title">Split PDF</h3>
+                    <p class="tool-description">Split a PDF into multiple files by pages, ranges, or extract specific pages.</p>
+                    <a href="split-pdf.html" class="tool-btn">Use Tool</a>
+                </div>
+
+                <!-- Tool Card 3 -->
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-compress"></i>
+                    </div>
+                    <h3 class="tool-title">Compress PDF</h3>
+                    <p class="tool-description">Reduce PDF file size while keeping quality for easy sharing and storage.</p>
+                    <a href="compress-pdf.html" class="tool-btn">Use Tool</a>
+                </div>
+
+                <!-- Tool Card 4 -->
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-file-word"></i>
+                    </div>
+                    <h3 class="tool-title">PDF to Word</h3>
+                    <p class="tool-description">Convert PDF files to editable Word documents while preserving formatting.</p>
+                    <a href="pdf-to-word.html" class="tool-btn">Use Tool</a>
+                </div>
+
+                <!-- Tool Card 5 -->
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <h3 class="tool-title">Word to PDF</h3>
+                    <p class="tool-description">Convert Word documents to PDF files with perfect formatting.</p>
+                    <a href="word-to-pdf.html" class="tool-btn">Use Tool</a>
+                </div>
+
+                <!-- Tool Card 6 -->
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3 class="tool-title">Protect PDF</h3>
+                    <p class="tool-description">Add password protection and permissions to your PDF files.</p>
+                    <a href="protect-pdf.html" class="tool-btn">Use Tool</a>
+                </div>
+
+                <!-- Tool Card 7 -->
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-edit"></i>
+                    </div>
+                    <h3 class="tool-title">Edit PDF</h3>
+                    <p class="tool-description">Add text, images, shapes and edit PDF content directly in your browser.</p>
+                    <a href="edit-pdf.html" class="tool-btn">Use Tool</a>
+                    <span class="tool-badge new">New</span>
+                </div>
+
+                <!-- Tool Card 8 -->
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fas fa-tint"></i>
+                    </div>
+                    <h3 class="tool-title">Watermark PDF</h3>
+                    <p class="tool-description">Add text or image watermarks to your PDF documents.</p>
+                    <a href="watermark-pdf.html" class="tool-btn">Use Tool</a>
+                </div>
+
+                <!-- View All Tools -->
+                <div class="tool-card view-all">
+                    <div class="tool-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 class="tool-title">All PDF Tools</h3>
+                    <p class="tool-description">Browse our complete collection of 50+ PDF tools for all your needs.</p>
+                    <a href="all-tools.html" class="tool-btn">View All Tools</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <h2 class="section-title">Why Choose PDFToolsPro?</h2>
+            <p class="section-subtitle">The ultimate solution for all your PDF needs</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Secure & Private</h3>
+                    <p class="feature-description">Your files are protected with 256-bit SSL encryption and automatically deleted after processing.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="feature-title">Fast Processing</h3>
+                    <p class="feature-description">Process your PDF files in seconds with our optimized cloud infrastructure.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <h3 class="feature-title">No Installation</h3>
+                    <p class="feature-description">All tools work directly in your browser. No software downloads required.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-infinity"></i>
+                    </div>
+                    <h3 class="feature-title">Unlimited Use</h3>
+                    <p class="feature-description">Use our tools as many times as you need. No daily limits or hidden fees.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <p class="section-subtitle">Three simple steps to process your PDF files</p>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                    </div>
+                    <h3 class="step-title">Upload PDF File</h3>
+                    <p class="step-description">Drag & drop your PDF file or click to browse. Maximum file size: 50MB.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">
+                        <i class="fas fa-sliders-h"></i>
+                    </div>
+                    <h3 class="step-title">Customize Settings</h3>
+                    <p class="step-description">Choose your preferences and settings for the selected tool.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">
+                        <i class="fas fa-download"></i>
+                    </div>
+                    <h3 class="step-title">Download Result</h3>
+                    <p class="step-description">Your processed PDF is ready! Download instantly to your device.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">Trusted by Millions</h2>
+            <p class="section-subtitle">See what our users say about PDFToolsPro</p>
+            
+            <div class="testimonials">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"This is the best online PDF tool I've ever used. The compression tool reduced my file size by 80% without losing quality!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Sarah Johnson</h4>
+                            <p>Marketing Manager</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"As a student, I use PDFToolsPro daily. Converting PDFs to Word for editing has never been easier. Highly recommended!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Michael Chen</h4>
+                            <p>University Student</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Our team processes hundreds of PDFs monthly. This tool saves us hours of work and has become essential to our workflow."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>David Wilson</h4>
+                            <p>Project Manager</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Ready to Process Your PDFs?</h2>
+                <p class="cta-subtitle">Join millions of satisfied users today. No registration required!</p>
+                <a href="all-tools.html" class="cta-btn">Start Processing PDFs Now <i class="fas fa-arrow-right"></i></a>
+                <p class="cta-note">Completely free. No credit card needed.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-file-pdf"></i>
+                    <span>PDFTools<span class="logo-pro">Pro</span></span>
+                    <p class="footer-tagline">Your complete PDF solution</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 class="footer-title">Product</h4>
+                        <a href="all-tools.html">All Tools</a>
+                        <a href="features.html">Features</a>
+                        <a href="pricing.html">Pricing</a>
+                        <a href="api.html">API</a>
+                        <a href="download.html">Download</a>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4 class="footer-title">Resources</h4>
+                        <a href="blog.html">Blog</a>
+                        <a href="tutorials.html">Tutorials</a>
+                        <a href="faq.html">FAQ</a>
+                        <a href="support.html">Support</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4 class="footer-title">Legal</h4>
+                        <a href="privacy.html">Privacy Policy</a>
+                        <a href="terms.html">Terms of Service</a>
+                        <a href="cookies.html">Cookie Policy</a>
+                        <a href="security.html">Security</a>
+                        <a href="gdpr.html">GDPR</a>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4 class="footer-title">Company</h4>
+                        <a href="about.html">About Us</a>
+                        <a href="careers.html">Careers</a>
+                        <a href="press.html">Press</a>
+                        <a href="partners.html">Partners</a>
+                        <a href="status.html">System Status</a>
+                    </div>
+                </div>
+                
+                <div class="footer-social">
+                    <h4 class="footer-title">Follow Us</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 PDFToolsPro. All rights reserved.</p>
+                <div class="footer-lang">
+                    <i class="fas fa-globe"></i>
+                    <select class="lang-select">
+                        <option value="en">English</option>
+                        <option value="es">Español</option>
+                        <option value="fr">Français</option>
+                        <option value="de">Deutsch</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
