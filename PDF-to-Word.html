@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF to Word Converter | ProTools</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+</head>
+<body class="bg-slate-50 font-sans">
+
+    <div class="min-h-screen flex flex-col items-center justify-center p-6">
+        <div class="max-w-2xl w-full bg-white rounded-2xl shadow-xl p-8">
+            <h1 class="text-3xl font-bold text-slate-800 mb-2">PDF to Word</h1>
+            <p class="text-slate-500 mb-8">Convert your PDF documents to editable Word files instantly.</p>
+
+            <div id="dropzone" class="border-2 border-dashed border-blue-200 bg-blue-50 rounded-xl p-10 flex flex-col items-center justify-center transition-all cursor-pointer hover:border-blue-400">
+                <svg class="w-12 h-12 text-blue-500 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
+                <p class="text-lg font-medium text-slate-700">Click to upload or drag and drop</p>
+                <p class="text-sm text-slate-400">PDF files only (Max 10MB)</p>
+                <input type="file" id="fileInput" class="hidden" accept=".pdf">
+            </div>
+
+            <div id="statusArea" class="mt-6 hidden">
+                <div class="flex items-center justify-between mb-2">
+                    <span id="fileName" class="text-sm font-semibold text-slate-600 truncate mr-4">filename.pdf</span>
+                    <span id="percent" class="text-sm text-blue-600 font-bold">0%</span>
+                </div>
+                <div class="w-full bg-slate-100 rounded-full h-2.5">
+                    <div id="progressBar" class="bg-blue-600 h-2.5 rounded-full transition-all" style="width: 0%"></div>
+                </div>
+                <button id="downloadBtn" class="w-full mt-6 bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-lg hidden transition-colors">
+                    Download Word Document
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const dropzone = document.getElementById('dropzone');
+        const fileInput = document.getElementById('fileInput');
+        const statusArea = document.getElementById('statusArea');
+        const progressBar = document.getElementById('progressBar');
+        const percentText = document.getElementById('percent');
+        const downloadBtn = document.getElementById('downloadBtn');
+        const fileNameLabel = document.getElementById('fileName');
+
+        // Initialize PDF.js
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.worker.min.js';
+
+        dropzone.onclick = () => fileInput.click();
+
+        fileInput.onchange = (e) => handleFile(e.target.files[0]);
+
+        async function handleFile(file) {
+            if (!file || file.type !== 'application/pdf') return alert('Please upload a PDF file.');
+
+            fileNameLabel.innerText = file.name;
+            statusArea.classList.remove('hidden');
+            downloadBtn.classList.add('hidden');
+            
+            const reader = new FileReader();
+            reader.onload = async function() {
+                const typedarray = new Uint8Array(this.result);
+                const pdf = await pdfjsLib.getDocument(typedarray).promise;
+                let fullText = "";
+
+                for (let i = 1; i <= pdf.numPages; i++) {
+                    const page = await pdf.getPage(i);
+                    const textContent = await page.getTextContent();
+                    const pageText = textContent.items.map(s => s.str).join(' ');
+                    fullText += pageText + "\n\n";
+                    
+                    // Update Progress
+                    const progress = Math.round((i / pdf.numPages) * 100);
+                    progressBar.style.width = progress + '%';
+                    percentText.innerText = progress + '%';
+                }
+
+                createWordDoc(fullText, file.name.replace('.pdf', '.doc'));
+            };
+            reader.readAsArrayBuffer(file);
+        }
+
+        function createWordDoc(content, filename) {
+            // Simple Word XML wrapper to ensure text is editable in Word
+            const header = "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'></head><body>";
+            const footer = "</body></html>";
+            const sourceHTML = header + content.replace(/\n/g, '<br>') + footer;
+            
+            const blob = new Blob(['\ufeff', sourceHTML], { type: 'application/msword' });
+            const url = URL.createObjectURL(blob);
+            
+            downloadBtn.classList.remove('hidden');
+            downloadBtn.onclick = () => {
+                const link = document.createElement('a');
+                link.href = url;
+                link.download = filename;
+                link.click();
+            };
+        }
+    </script>
+</body>
+</html>
