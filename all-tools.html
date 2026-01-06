@@ -1,0 +1,254 @@
+
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Tools Pro - Free Online PDF Editor</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <style>
+        /* Small CSS addition for smooth transitions */
+        .tool-card { transition: all 0.3s ease; }
+        .hidden-tool { display: none !important; }
+    </style>
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <!-- Logo -->
+                <div class="logo">
+                    <a href="index.html">
+                        <i class="fas fa-file-pdf logo-icon"></i>
+                        <span class="logo-text">PDFTools<span class="logo-pro">Pro</span></span>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <ul class="nav-menu">
+                    <li class="nav-item dropdown">
+                        <a href="javascript:void(0)" class="nav-link" onclick="filterTools('organize')">Organize <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="merge-pdf.html"><i class="fas fa-object-group"></i> Merge PDF</a>
+                            <a href="split-pdf.html"><i class="fas fa-cut"></i> Split PDF</a>
+                            <a href="compress-pdf.html"><i class="fas fa-compress"></i> Compress PDF</a>
+                            <a href="reorder-pdf.html"><i class="fas fa-sort-numeric-down"></i> Reorder PDF</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="javascript:void(0)" class="nav-link" onclick="filterTools('convert')">Convert <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="pdf-to-word.html"><i class="fas fa-file-word"></i> PDF to Word</a>
+                            <a href="word-to-pdf.html"><i class="fas fa-file-pdf"></i> Word to PDF</a>
+                            <a href="pdf-to-excel.html"><i class="fas fa-file-excel"></i> PDF to Excel</a>
+                            <a href="excel-to-pdf.html"><i class="fas fa-file-pdf"></i> Excel to PDF</a>
+                            <a href="pdf-to-ppt.html"><i class="fas fa-file-powerpoint"></i> PDF to PPT</a>
+                            <a href="ppt-to-pdf.html"><i class="fas fa-file-pdf"></i> PPT to PDF</a>
+                            <a href="pdf-to-jpg.html"><i class="fas fa-file-image"></i> PDF to JPG</a>
+                            <a href="jpg-to-pdf.html"><i class="fas fa-file-pdf"></i> JPG to PDF</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="javascript:void(0)" class="nav-link" onclick="filterTools('edit')">Edit <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="edit-pdf.html"><i class="fas fa-edit"></i> Edit PDF</a>
+                            <a href="rotate-pdf.html"><i class="fas fa-sync-alt"></i> Rotate PDF</a>
+                            <a href="watermark-pdf.html"><i class="fas fa-tint"></i> Watermark PDF</a>
+                            <a href="page-numbers.html"><i class="fas fa-list-ol"></i> Add Page Numbers</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="javascript:void(0)" class="nav-link" onclick="filterTools('security')">Security <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="protect-pdf.html"><i class="fas fa-lock"></i> Protect PDF</a>
+                            <a href="unlock-pdf.html"><i class="fas fa-unlock"></i> Unlock PDF</a>
+                            <a href="sign-pdf.html"><i class="fas fa-signature"></i> Sign PDF</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void(0)" class="nav-link" onclick="filterTools('all')">All Tools</a>
+                    </li>
+                </ul>
+
+                <div class="auth-buttons">
+                    <a href="login.html" class="btn-login">Log In</a>
+                    <a href="signup.html" class="btn-signup">Sign Up Free</a>
+                </div>
+
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">All Your PDF Tools in One Place</h1>
+                <p class="hero-subtitle">Merge, split, compress, convert, edit, and secure PDF files for free.</p>
+                <div class="hero-search">
+                    <input type="text" id="mainSearch" placeholder="What do you want to do with your PDF?" class="search-input">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Tools Section -->
+    <section class="tools-section" id="tools-section">
+        <div class="container">
+            <h2 class="section-title" id="grid-title">All PDF Tools</h2>
+            
+            <div class="tools-grid" id="tools-grid">
+                <!-- ORGANIZE TOOLS -->
+                <div class="tool-card" data-category="organize">
+                    <div class="tool-icon"><i class="fas fa-object-group"></i></div>
+                    <h3 class="tool-title">Merge PDF</h3>
+                    <p class="tool-description">Combine multiple PDF files into one document.</p>
+                    <a href="merge-pdf.html" class="tool-btn">Use Tool</a>
+                    <span class="tool-badge">Popular</span>
+                </div>
+
+                <div class="tool-card" data-category="organize">
+                    <div class="tool-icon"><i class="fas fa-cut"></i></div>
+                    <h3 class="tool-title">Split PDF</h3>
+                    <p class="tool-description">Extract pages or split PDF into multiple files.</p>
+                    <a href="split-pdf.html" class="tool-btn">Use Tool</a>
+                </div>
+
+                <div class="tool-card" data-category="organize">
+                    <div class="tool-icon"><i class="fas fa-compress"></i></div>
+                    <h3 class="tool-title">Compress PDF</h3>
+                    <p class="tool-description">Reduce PDF file size without losing quality.</p>
+                    <a href="compress-pdf.html" class="tool-btn">Use Tool</a>
+                </div>
+
+                <!-- CONVERT TOOLS -->
+                <div class="tool-card" data-category="convert">
+                    <div class="tool-icon"><i class="fas fa-file-word"></i></div>
+                    <h3 class="tool-title">PDF to Word</h3>
+                    <p class="tool-description">Convert PDF to editable DOCX documents.</p>
+                    <a href="pdf-to-word.html" class="tool-btn">Use Tool</a>
+                </div>
+
+                <div class="tool-card" data-category="convert">
+                    <div class="tool-icon"><i class="fas fa-file-pdf"></i></div>
+                    <h3 class="tool-title">Word to PDF</h3>
+                    <p class="tool-description">Convert Word files into professional PDFs.</p>
+                    <a href="word-to-pdf.html" class="tool-btn">Use Tool</a>
+                </div>
+
+                <div class="tool-card" data-category="convert">
+                    <div class="tool-icon"><i class="fas fa-file-excel"></i></div>
+                    <h3 class="tool-title">PDF to Excel</h3>
+                    <p class="tool-description">Extract tables from PDF to XLSX sheets.</p>
+                    <a href="pdf-to-excel.html" class="tool-btn">Use Tool</a>
+                </div>
+
+                <div class="tool-card" data-category="convert">
+                    <div class="tool-icon"><i class="fas fa-file-image"></i></div>
+                    <h3 class="tool-title">PDF to JPG</h3>
+                    <p class="tool-description">Extract PDF pages as JPG images.</p>
+                    <a href="pdf-to-jpg.html" class="tool-btn">Use Tool</a>
+                </div>
+
+                <!-- EDIT TOOLS -->
+                <div class="tool-card" data-category="edit">
+                    <div class="tool-icon"><i class="fas fa-edit"></i></div>
+                    <h3 class="tool-title">Edit PDF</h3>
+                    <p class="tool-description">Add text, images, and shapes to your PDF.</p>
+                    <a href="edit-pdf.html" class="tool-btn">Use Tool</a>
+                    <span class="tool-badge new">New</span>
+                </div>
+
+                <div class="tool-card" data-category="edit">
+                    <div class="tool-icon"><i class="fas fa-sync-alt"></i></div>
+                    <h3 class="tool-title">Rotate PDF</h3>
+                    <p class="tool-description">Flip your PDF pages 90 or 180 degrees.</p>
+                    <a href="rotate-pdf.html" class="tool-btn">Use Tool</a>
+                </div>
+
+                <div class="tool-card" data-category="edit">
+                    <div class="tool-icon"><i class="fas fa-tint"></i></div>
+                    <h3 class="tool-title">Watermark</h3>
+                    <p class="tool-description">Add stamps or text overlays to your PDF.</p>
+                    <a href="watermark-pdf.html" class="tool-btn">Use Tool</a>
+                </div>
+
+                <!-- SECURITY TOOLS -->
+                <div class="tool-card" data-category="security">
+                    <div class="tool-icon"><i class="fas fa-lock"></i></div>
+                    <h3 class="tool-title">Protect PDF</h3>
+                    <p class="tool-description">Add a password and encrypt your PDF.</p>
+                    <a href="protect-pdf.html" class="tool-btn">Use Tool</a>
+                </div>
+
+                <div class="tool-card" data-category="security">
+                    <div class="tool-icon"><i class="fas fa-signature"></i></div>
+                    <h3 class="tool-title">Sign PDF</h3>
+                    <p class="tool-description">Draw your signature and sign documents.</p>
+                    <a href="sign-pdf.html" class="tool-btn">Use Tool</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Simplified for brevity) -->
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2026 PDFToolsPro. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        function filterTools(category) {
+            const cards = document.querySelectorAll('.tool-card');
+            const title = document.getElementById('grid-title');
+            
+            // Update Title
+            title.innerText = category === 'all' ? 'All PDF Tools' : category.charAt(0).toUpperCase() + category.slice(1) + ' Tools';
+
+            // Filter Cards
+            cards.forEach(card => {
+                const cardCat = card.getAttribute('data-category');
+                if (category === 'all' || cardCat === category) {
+                    card.classList.remove('hidden-tool');
+                } else {
+                    card.classList.add('hidden-tool');
+                }
+            });
+
+            // Scroll to tools
+            document.getElementById('tools-section').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Search Logic
+        document.getElementById('mainSearch').addEventListener('input', function(e) {
+            const term = e.target.value.toLowerCase();
+            const cards = document.querySelectorAll('.tool-card');
+            
+            cards.forEach(card => {
+                const title = card.querySelector('.tool-title').innerText.toLowerCase();
+                const desc = card.querySelector('.tool-description').innerText.toLowerCase();
+                
+                if (title.includes(term) || desc.includes(term)) {
+                    card.classList.remove('hidden-tool');
+                } else {
+                    card.classList.add('hidden-tool');
+                }
+            });
+        });
+
+        // Initialize
+        window.onload = () => filterTools('all');
+    </script>
+</body>
+</html>
+ 
